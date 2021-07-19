@@ -7,8 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="https://unpkg.com/immer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.1.0/redux.min.js" integrity="sha512-F21iSaHGX/3NFz5SuwoH6pGhTPxtoJoWWULqQVPQPtLm7nbK5r8vRSSSYy3Aj+H39cVrVm4+3ikGoVD1AjE0sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <div>
+        Aulas: <span id="aulas"></span> 
+    </div>
+    <div>
+        Aluno: <span id="aluno"></span>
+    </div>
+    <input type="email" name="newEmail" id="newEmail">
+    <button class='trocar-email'>Trocar email</button>
     <script type="module" src="./index.js"></script>
+    <script src="./immer.umd.production.min.js"></script>
+    <script src="./redux.min.js"></script>
 </body>
 </html>

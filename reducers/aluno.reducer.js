@@ -11,27 +11,33 @@ export const reduzirTempo = () =>{
     return {type: REDUZIR_TEMPO};
 }
 
-export const modificarEmail = (payload) =>{
-    return {type: MODIFICAR_EMAIL, payload}
+export const modificarEmail = (email) =>{
+    return {
+        type: MODIFICAR_EMAIL, payload: email
+    }
 }
 
-const aluno = {
-    name: 'Pedro',
-    email: 'pedro@t.com',
-    tempoRestante: 100
-}
+const initialState = {
+        name: 'Pedro',
+        email: 'pedro@t.com',
+        tempoRestante: 100
+    }
 
-const alunoReducer = (state = aluno, action ) =>{
+
+const alunoReducer = immer.produce((state, action ) =>{
     switch(action.type) {
         case INCREMENTAR_TEMPO:
-            return state.tempoRestante + 1;
+            state.tempoRestante++;
+            break;
         case REDUZIR_TEMPO:
-            return state.tempoRestante - 1;
+            state.tempoRestante--;
+            break;
         case MODIFICAR_EMAIL:
-            return {...aluno, email = action.payload}
+            state.email = action.payload;
+            break;
         default:
             return state;
     }
-}
+}, initialState);
 
 export default alunoReducer
